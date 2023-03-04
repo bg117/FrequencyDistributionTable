@@ -35,6 +35,7 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(TotalFrequency));
         RaisePropertyChangedEvent(nameof(Mean));
         RaisePropertyChangedEvent(nameof(Median));
+        RaisePropertyChangedEvent(nameof(Mode));
     }
 
     public int ClassInterval
@@ -82,6 +83,31 @@ public class MainViewModel : ObservableObject
 
             // medianClassLb + ((halfOfTotalFreq - belowLessCumulFreq) / medianClassFreq) * class interval
             return medianClassLb + ((halfOfTotalFreq - belowLessCumulFreq) / medianClassFreq) * ClassInterval;
+        }
+    }
+
+    public decimal Mode
+    {
+        get
+        {
+            if (Classes.Count < 2)
+                return 0;
+
+            var modalClass = Classes.OrderByDescending(x => x.Class.Frequency).First(); // class with highest frequency
+            var belowModalClassIndex = Classes.IndexOf(modalClass) - 1;
+            var aboveModalClassIndex = Classes.IndexOf(modalClass) + 1;
+
+            // D1 (modal class frequency - frequency of class below modal class)
+            var freqMinusBelow = modalClass.Class.Frequency -
+                                 (Classes.ElementAtOrDefault(belowModalClassIndex)?.Class.Frequency ?? 0); // if no class below modal class, self
+
+            // D2 (modal class frequency - frequency of class above modal class)
+            var freqMinusAbove = modalClass.Class.Frequency -
+                                 (Classes.ElementAtOrDefault(aboveModalClassIndex)?.Class.Frequency ?? 0); // if no class above modal class, self
+
+            var modalClassLb = modalClass.Class.LowerBoundary;
+            
+            return modalClassLb + (freqMinusBelow / (freqMinusBelow + freqMinusAbove)) * ClassInterval; // modal class lower bound + (D1 / (D1 + D2)) * class interval
         }
     }
 
