@@ -11,6 +11,14 @@
     <UserControl.DataContext>
         <viewmodels:MainViewModel />
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+    </UserControl.Resources>
     <Border Padding="8">
         <StackPanel Orientation="Vertical">
             <TextBlock FontSize="18" Margin="0 0 0 4">Frequency Distribution Table</TextBlock>
