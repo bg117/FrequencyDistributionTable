@@ -145,6 +145,9 @@
                 <TextBlock>
                     Sample Variance: <Run Text="{Binding SampleVariance,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
+                <TextBlock>
+                    Population Variance: <Run Text="{Binding PopulationVariance,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
     </Border>
