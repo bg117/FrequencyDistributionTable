@@ -80,6 +80,9 @@ public class MainViewModel : ObservableObject
             var medianClassFreq = medianClass.Class.Frequency; // frequency of median class
             var medianClassLb = medianClass.Class.LowerBoundary; // lower bound of median class
 
+            if (medianClassFreq == 0)
+                return 0;
+
             // medianClassLb + ((halfOfTotalFreq - belowLessCumulFreq) / medianClassFreq) * class interval
             return medianClassLb + ((halfOfTotalFreq - belowLessCumulFreq) / medianClassFreq) * ClassInterval;
         }
