@@ -33,6 +33,8 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(Median));
         RaisePropertyChangedEvent(nameof(Mode));
         RaisePropertyChangedEvent(nameof(Range));
+        RaisePropertyChangedEvent(nameof(Variance));
+
     }
 
     public int ClassInterval
@@ -128,6 +130,22 @@ public class MainViewModel : ObservableObject
             var lastClass = Classes.Last();
 
             return lastClass.Class.UpperBoundary - firstClass.Class.LowerBoundary;
+        }
+    }
+
+    public decimal Variance
+    {
+        get
+        {
+            var numerator = Classes.Select(x =>
+            {
+                var classMidpoint = x.Class.Midpoint;
+                var classFreq = x.Class.Frequency;
+                var cmm = classMidpoint - Mean; // shorthand
+                return classFreq * cmm * cmm; // Sigma(frequency * (class midpoint - mean)^2)
+            }).Sum();
+
+            return numerator / (TotalFrequency - 1);
         }
     }
 
