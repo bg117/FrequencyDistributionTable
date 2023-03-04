@@ -133,6 +133,9 @@
                 <TextBlock>
                     Median: <Run Text="{Binding Median,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
+                <TextBlock>
+                    Mode: <Run Text="{Binding Mode,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
     </Border>
