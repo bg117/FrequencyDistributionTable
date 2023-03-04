@@ -102,11 +102,11 @@ public class MainViewModel : ObservableObject
 
             // D1 (modal class frequency - frequency of class below modal class)
             var freqMinusBelow = modalClass.Class.Frequency -
-                                 (Classes.ElementAtOrDefault(belowModalClassIndex)?.Class.Frequency ?? 0); // if no class below modal class, self
+                                 (Classes.ElementAtOrDefault(belowModalClassIndex)?.Class.Frequency ?? 0m); // if no class below modal class, self
 
             // D2 (modal class frequency - frequency of class above modal class)
             var freqMinusAbove = modalClass.Class.Frequency -
-                                 (Classes.ElementAtOrDefault(aboveModalClassIndex)?.Class.Frequency ?? 0); // if no class above modal class, self
+                                 (Classes.ElementAtOrDefault(aboveModalClassIndex)?.Class.Frequency ?? 0m); // if no class above modal class, self
 
             var modalClassLb = modalClass.Class.LowerBoundary;
             
