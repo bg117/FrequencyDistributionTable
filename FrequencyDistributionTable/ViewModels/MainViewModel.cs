@@ -137,16 +137,20 @@ public class MainViewModel : ObservableObject
     {
         get
         {
-            var numerator = Classes.Select(x =>
-            {
-                var classMidpoint = x.Class.Midpoint;
-                var classFreq = x.Class.Frequency;
-                var cmm = classMidpoint - Mean; // shorthand
-                return classFreq * cmm * cmm; // Sigma(frequency * (class midpoint - mean)^2)
-            }).Sum();
-
+            var numerator = GetVarianceNumerator();
             return numerator / (TotalFrequency - 1);
         }
+    }
+
+    private decimal GetVarianceNumerator()
+    {
+        return Classes.Select(x =>
+        {
+            var classMidpoint = x.Class.Midpoint;
+            var classFreq = x.Class.Frequency;
+            var cmm = classMidpoint - Mean; // shorthand
+            return classFreq * cmm * cmm; // Sigma(frequency * (class midpoint - mean)^2)
+        }).Sum();
     }
 
     public ICommand AddClassCommand => new CommandBase(x => AddClass());

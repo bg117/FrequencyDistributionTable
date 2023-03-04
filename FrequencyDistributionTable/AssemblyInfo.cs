@@ -11,4 +11,4 @@ using System.Windows;
 )]
 
 [assembly: AssemblyVersion(
-    "0.10.1.*")]
+    "0.10.2.*")]
