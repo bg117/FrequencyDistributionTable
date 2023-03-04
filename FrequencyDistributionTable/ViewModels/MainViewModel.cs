@@ -138,6 +138,8 @@ public class MainViewModel : ObservableObject
         get
         {
             var numerator = GetVarianceNumerator();
+            if (TotalFrequency - 1 == 0)
+                return 0;
             return numerator / (TotalFrequency - 1);
         }
     }
