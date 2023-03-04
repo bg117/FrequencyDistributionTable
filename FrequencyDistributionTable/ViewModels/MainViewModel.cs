@@ -35,6 +35,7 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(Range));
         RaisePropertyChangedEvent(nameof(SampleVariance));
         RaisePropertyChangedEvent(nameof(PopulationVariance));
+        RaisePropertyChangedEvent(nameof(SampleStdDeviation));
 
     }
 
@@ -155,6 +156,8 @@ public class MainViewModel : ObservableObject
             return numerator / TotalFrequency;
         }
     }
+
+    public decimal SampleStdDeviation => (decimal)Math.Sqrt((double)SampleVariance);
 
     private decimal GetVarianceNumerator()
     {
