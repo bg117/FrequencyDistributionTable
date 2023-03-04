@@ -13,6 +13,7 @@
     </UserControl.DataContext>
     <Border Padding="8">
         <StackPanel Orientation="Vertical">
+            <TextBlock FontSize="18" Margin="0 0 0 4">Frequency Distribution Table</TextBlock>
             <DockPanel Margin="0 0 0 4">
                 <Label>Lowest Value</Label>
                 <TextBox Margin="0 0 4 0"
@@ -112,7 +113,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Margin="0 0 0 4">
                 <TextBlock FontFamily="Cambria Math">
                     <Run>Σ𝑓 = </Run>
                     <Run Text="{Binding TotalFrequency,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -124,7 +125,12 @@
                              IsEnabled="{Binding CanChangeClassInterval,UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
             </StackPanel>
-            
+            <TextBlock FontSize="18" Margin="0 0 0 4">Measures of Central Tendency</TextBlock>
+            <StackPanel Orientation="Vertical">
+                <TextBlock>
+                    Mean: <Run Text="{Binding Mean,UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>
