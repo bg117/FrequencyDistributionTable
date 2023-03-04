@@ -34,6 +34,7 @@ public class MainViewModel : ObservableObject
     {
         RaisePropertyChangedEvent(nameof(TotalFrequency));
         RaisePropertyChangedEvent(nameof(Mean));
+        RaisePropertyChangedEvent(nameof(Median));
     }
 
     public int ClassInterval
@@ -65,6 +66,24 @@ public class MainViewModel : ObservableObject
     public decimal Mean =>
         // (sum of (class midpoint * frequency)) / total frequency
         TotalFrequency != 0 ? Classes.Select(x => x.Class.Midpoint * x.Class.Frequency).Sum() / TotalFrequency : 0;
+
+    public decimal Median
+    {
+        get
+        {
+            if (Classes.Count < 2)
+                return 0;
+
+            var halfOfTotalFreq = TotalFrequency / 2m; // half of total frequency
+            var medianClass = Classes.FirstOrDefault(x => x.CumulativeFrequencyLess >= halfOfTotalFreq); // first class where cumulative frequency is greater than half of total frequency
+            var belowLessCumulFreq = Classes[Classes.IndexOf(medianClass) - 1].CumulativeFrequencyLess; // cumulative frequency of class below median class
+            var medianClassFreq = medianClass.Class.Frequency; // frequency of median class
+            var medianClassLb = medianClass.Class.LowerBoundary; // lower bound of median class
+
+            // medianClassLb + ((halfOfTotalFreq - belowLessCumulFreq) / medianClassFreq) * class interval
+            return medianClassLb + ((halfOfTotalFreq - belowLessCumulFreq) / medianClassFreq) * ClassInterval;
+        }
+    }
 
     public ICommand AddClassCommand => new CommandBase(x => AddClass());
     public ICommand RemoveClassCommand => new CommandBase(x => RemoveClass(x as int? ?? -1));
