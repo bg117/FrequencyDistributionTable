@@ -113,7 +113,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <StackPanel Orientation="Vertical" Margin="0 0 0 4">
+            <StackPanel Orientation="Vertical" Margin="0 0 0 8">
                 <TextBlock FontFamily="Cambria Math">
                     <Run>Σ𝑓 = </Run>
                     <Run Text="{Binding TotalFrequency,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -126,7 +126,7 @@
                 </StackPanel>
             </StackPanel>
             <TextBlock FontSize="18" Margin="0 0 0 4">Measures of Central Tendency</TextBlock>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Margin="0 0 0 8" Orientation="Vertical">
                 <TextBlock>
                     Mean: <Run Text="{Binding Mean,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
@@ -135,6 +135,12 @@
                 </TextBlock>
                 <TextBlock>
                     Mode: <Run Text="{Binding Mode,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
+            </StackPanel>
+            <TextBlock FontSize="18" Margin="0 0 0 4">Measures of Spread</TextBlock>
+            <StackPanel Margin="0 0 0 8" Orientation="Vertical">
+                <TextBlock>
+                    Range: <Run Text="{Binding Range,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
             </StackPanel>
         </StackPanel>
