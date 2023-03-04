@@ -77,7 +77,10 @@ public class MainViewModel : ObservableObject
 
             var halfOfTotalFreq = TotalFrequency / 2m; // half of total frequency
             var medianClass = Classes.FirstOrDefault(x => x.CumulativeFrequencyLess >= halfOfTotalFreq); // first class where cumulative frequency is greater than half of total frequency
-            var belowLessCumulFreq = Classes[Classes.IndexOf(medianClass) - 1].CumulativeFrequencyLess; // cumulative frequency of class below median class
+            var belowMedianClassIndex = Classes.IndexOf(medianClass) - 1; // class below median class
+            
+            // if no class below median class, 0
+            var belowLessCumulFreq = Classes.ElementAtOrDefault(belowMedianClassIndex)?.CumulativeFrequencyLess ?? 0; // cumulative frequency of class below median class
             var medianClassFreq = medianClass.Class.Frequency; // frequency of median class
             var medianClassLb = medianClass.Class.LowerBoundary; // lower bound of median class
 
