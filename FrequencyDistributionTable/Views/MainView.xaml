@@ -142,6 +142,9 @@
                 <TextBlock>
                     Range: <Run Text="{Binding Range,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
+                <TextBlock>
+                    Variance: <Run Text="{Binding Variance,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
     </Border>
