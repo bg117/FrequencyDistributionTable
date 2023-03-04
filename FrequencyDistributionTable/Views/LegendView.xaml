@@ -18,6 +18,8 @@
             <TextBlock><Run FontFamily="Cambria Math">𝐿</Run>: Less-than cumulative frequency</TextBlock>
             <TextBlock><Run FontFamily="Cambria Math">𝐺</Run>: Greater-than cumulative frequency</TextBlock>
             <TextBlock><Run FontFamily="Cambria Math">Σ𝑓</Run>: Total frequency</TextBlock>
+            <TextBlock><Run FontFamily="Cambria Math">𝑠²</Run>: Sample variance</TextBlock>
+            <TextBlock><Run FontFamily="Cambria Math">𝜎²</Run>: Population variance</TextBlock>
         </StackPanel>
     </StackPanel>
 </UserControl>
