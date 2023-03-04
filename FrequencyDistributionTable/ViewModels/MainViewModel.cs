@@ -109,6 +109,9 @@ public class MainViewModel : ObservableObject
 
             var modalClassLb = modalClass.Class.LowerBoundary;
             
+            if (freqMinusBelow + freqMinusAbove == 0)
+                return 0;
+            
             return modalClassLb + (freqMinusBelow / (freqMinusBelow + freqMinusAbove)) * ClassInterval; // modal class lower bound + (D1 / (D1 + D2)) * class interval
         }
     }
