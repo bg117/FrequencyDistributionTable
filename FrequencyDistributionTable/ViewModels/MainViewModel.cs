@@ -109,7 +109,7 @@ public class MainViewModel : ObservableObject
                                  (Classes.ElementAtOrDefault(aboveModalClassIndex)?.Class.Frequency ?? 0m); // if no class above modal class, self
 
             var modalClassLb = modalClass.Class.LowerBoundary;
-            
+
             if (freqMinusBelow + freqMinusAbove == 0)
                 return 0;
             
