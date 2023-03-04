@@ -38,6 +38,7 @@
             </Grid>
             <TextBlock><Run FontFamily="Cambria Math">𝑠²</Run>: Sample variance</TextBlock>
             <TextBlock><Run FontFamily="Cambria Math">𝜎²</Run>: Population variance</TextBlock>
+            <TextBlock><Run FontFamily="Cambria Math">𝑠</Run>: Sample standard deviation</TextBlock>
         </StackPanel>
     </StackPanel>
 </UserControl>
