@@ -33,6 +33,7 @@ public class MainViewModel : ObservableObject
     private void UpdateNonSetProps()
     {
         RaisePropertyChangedEvent(nameof(TotalFrequency));
+        RaisePropertyChangedEvent(nameof(Mean));
     }
 
     public int ClassInterval
@@ -60,6 +61,10 @@ public class MainViewModel : ObservableObject
     }
 
     public int TotalFrequency => Classes.Select(x => x.Class.Frequency).Sum();
+
+    public decimal Mean =>
+        // (sum of (class midpoint * frequency)) / total frequency
+        TotalFrequency != 0 ? Classes.Select(x => x.Class.Midpoint * x.Class.Frequency).Sum() / TotalFrequency : 0;
 
     public ICommand AddClassCommand => new CommandBase(x => AddClass());
     public ICommand RemoveClassCommand => new CommandBase(x => RemoveClass(x as int? ?? -1));
@@ -111,5 +116,6 @@ public class MainViewModel : ObservableObject
         Classes.Clear();
         CanChangeClassInterval = true;
         CanChangeLowestValue = true;
+        UpdateNonSetProps();
     }
 }
