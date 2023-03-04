@@ -127,12 +127,18 @@
             </StackPanel>
             <TextBlock FontSize="18" Margin="0 0 0 4">Measures of Central Tendency</TextBlock>
             <StackPanel Margin="0 0 0 8" Orientation="Vertical">
-                <TextBlock>
-                    Mean: <Run Text="{Binding Mean,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
-                </TextBlock>
-                <TextBlock>
-                    Median: <Run Text="{Binding Median,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
-                </TextBlock>
+                <Grid>
+                    <TextBlock>‾</TextBlock>
+                    <TextBlock>
+                        <Run FontFamily="Cambria Math">𝑥</Run>: <Run Text="{Binding Mean,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </TextBlock>
+                </Grid>
+                <Grid>
+                    <TextBlock Margin="0,-5,0,0">~</TextBlock>
+                    <TextBlock>
+                        <Run FontFamily="Cambria Math">𝑥</Run>: <Run Text="{Binding Median,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </TextBlock>
+                </Grid>
                 <TextBlock>
                     Mode: <Run Text="{Binding Mode,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
