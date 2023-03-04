@@ -34,6 +34,7 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(Mode));
         RaisePropertyChangedEvent(nameof(Range));
         RaisePropertyChangedEvent(nameof(SampleVariance));
+        RaisePropertyChangedEvent(nameof(PopulationVariance));
 
     }
 
@@ -141,6 +142,17 @@ public class MainViewModel : ObservableObject
             if (TotalFrequency - 1 == 0)
                 return 0;
             return numerator / (TotalFrequency - 1);
+        }
+    }
+
+    public decimal PopulationVariance
+    {
+        get
+        {
+            var numerator = GetVarianceNumerator();
+            if (TotalFrequency == 0)
+                return 0;
+            return numerator / TotalFrequency;
         }
     }
 

@@ -137,7 +137,7 @@
                     Mode: <Run Text="{Binding Mode,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
             </StackPanel>
-            <TextBlock FontSize="18" Margin="0 0 0 4">Measures of Spread</TextBlock>
+            <TextBlock FontSize="18" Margin="0 0 0 4">Measures of Variability</TextBlock>
             <StackPanel Margin="0 0 0 8" Orientation="Vertical">
                 <TextBlock>
                     Range: <Run Text="{Binding Range,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
