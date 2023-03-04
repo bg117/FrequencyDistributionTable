@@ -33,7 +33,7 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(Median));
         RaisePropertyChangedEvent(nameof(Mode));
         RaisePropertyChangedEvent(nameof(Range));
-        RaisePropertyChangedEvent(nameof(Variance));
+        RaisePropertyChangedEvent(nameof(SampleVariance));
 
     }
 
@@ -133,7 +133,7 @@ public class MainViewModel : ObservableObject
         }
     }
 
-    public decimal Variance
+    public decimal SampleVariance
     {
         get
         {
