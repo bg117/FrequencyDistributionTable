@@ -22,12 +22,8 @@ public class MainViewModel : ObservableObject
 
     public MainViewModel()
     {
-        Classes.ClassChanged += Classes_ClassChanged;
-    }
-
-    private void Classes_ClassChanged(object? sender, ClassChangedEventArgs e)
-    {
-        UpdateNonSetProps();
+        Classes.ClassChanged += (a, b) => UpdateNonSetProps();
+        Classes.CollectionChanged += (a, b) => UpdateNonSetProps();
     }
 
     private void UpdateNonSetProps()
