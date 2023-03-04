@@ -32,6 +32,7 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(Mean));
         RaisePropertyChangedEvent(nameof(Median));
         RaisePropertyChangedEvent(nameof(Mode));
+        RaisePropertyChangedEvent(nameof(Range));
     }
 
     public int ClassInterval
@@ -113,6 +114,20 @@ public class MainViewModel : ObservableObject
                 return 0;
             
             return modalClassLb + (freqMinusBelow / (freqMinusBelow + freqMinusAbove)) * ClassInterval; // modal class lower bound + (D1 / (D1 + D2)) * class interval
+        }
+    }
+
+    public decimal Range
+    {
+        get
+        {
+            if (Classes.Count < 2)
+                return 0;
+
+            var firstClass = Classes.First();
+            var lastClass = Classes.Last();
+
+            return lastClass.Class.UpperBoundary - firstClass.Class.LowerBoundary;
         }
     }
 
