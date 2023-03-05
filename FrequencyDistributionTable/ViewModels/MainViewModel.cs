@@ -36,7 +36,7 @@ public class MainViewModel : ObservableObject
         RaisePropertyChangedEvent(nameof(SampleVariance));
         RaisePropertyChangedEvent(nameof(PopulationVariance));
         RaisePropertyChangedEvent(nameof(SampleStdDeviation));
-
+        RaisePropertyChangedEvent(nameof(PopulationStdDeviation));
     }
 
     public int ClassInterval
@@ -158,6 +158,8 @@ public class MainViewModel : ObservableObject
     }
 
     public decimal SampleStdDeviation => (decimal)Math.Sqrt((double)SampleVariance);
+
+    public decimal PopulationStdDeviation => (decimal)Math.Sqrt((double)PopulationVariance);
 
     private decimal GetVarianceNumerator()
     {
