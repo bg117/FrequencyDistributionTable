@@ -12,33 +12,35 @@
             <Setter Property="FontSize" Value="13"/>
         </Style>
     </UserControl.Resources>
-    <StackPanel Margin="8">
-        <TextBlock FontSize="24" Margin="0 0 0 8">Legend</TextBlock>
-        <StackPanel Orientation="Vertical">
-            <TextBlock><Run FontFamily="Cambria Math">𝑖</Run>: Class interval</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝑓</Run>: Frequency</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝓁</Run>: Lower boundary</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝓊</Run>: Upper boundary</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝑥</Run>: Midpoint</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝑓𝑥</Run>: Frequency multiplied by midpoint</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝐿</Run>: Less-than cumulative frequency</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝐺</Run>: Greater-than cumulative frequency</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">Σ𝑓</Run>: Total frequency</TextBlock>
-            <Grid>
-                <TextBlock>‾</TextBlock>
-                <TextBlock>
-                    <Run FontFamily="Cambria Math">𝑥</Run>: Mean
-                </TextBlock>
-            </Grid>
-            <Grid>
-                <TextBlock Margin="0,-5,0,0">~</TextBlock>
-                <TextBlock>
-                    <Run FontFamily="Cambria Math">𝑥</Run>: Median
-                </TextBlock>
-            </Grid>
-            <TextBlock><Run FontFamily="Cambria Math">𝑠²</Run>: Sample variance</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝜎²</Run>: Population variance</TextBlock>
-            <TextBlock><Run FontFamily="Cambria Math">𝑠</Run>: Sample standard deviation</TextBlock>
+    <ScrollViewer Padding="8" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock FontSize="24" Margin="0 0 0 8">Legend</TextBlock>
+            <StackPanel Orientation="Vertical">
+                <TextBlock><Run FontFamily="Cambria Math">𝑖</Run>: Class interval</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝑓</Run>: Frequency</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝓁</Run>: Lower boundary</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝓊</Run>: Upper boundary</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝑥</Run>: Midpoint</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝑓𝑥</Run>: Frequency multiplied by midpoint</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝐿</Run>: Less-than cumulative frequency</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝐺</Run>: Greater-than cumulative frequency</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">Σ𝑓</Run>: Total frequency</TextBlock>
+                <Grid>
+                    <TextBlock>‾</TextBlock>
+                    <TextBlock>
+                        <Run FontFamily="Cambria Math">𝑥</Run>: Mean
+                    </TextBlock>
+                </Grid>
+                <Grid>
+                    <TextBlock Margin="0,-5,0,0">~</TextBlock>
+                    <TextBlock>
+                        <Run FontFamily="Cambria Math">𝑥</Run>: Median
+                    </TextBlock>
+                </Grid>
+                <TextBlock><Run FontFamily="Cambria Math">𝑠²</Run>: Sample variance</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝜎²</Run>: Population variance</TextBlock>
+                <TextBlock><Run FontFamily="Cambria Math">𝑠</Run>: Sample standard deviation</TextBlock>
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>
