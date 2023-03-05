@@ -165,6 +165,9 @@
                 <TextBlock>
                     <Run FontFamily="Cambria Math">𝑠</Run>: <Run Text="{Binding SampleStdDeviation,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                 </TextBlock>
+                <TextBlock>
+                    <Run FontFamily="Cambria Math">𝜎</Run>: <Run Text="{Binding PopulationStdDeviation,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
